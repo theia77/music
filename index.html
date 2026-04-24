@@ -174,7 +174,7 @@
   <!-- Spotify embed (hidden until playback starts) -->
   <div id="spotify-embed-wrap" class="spotify-wrap" style="display:none;">
     <iframe id="spotify-embed" tabindex="0"
-      src="https://open.spotify.com/embed/playlist/3Rx9zSZgNBRhkLMFkfO9Fz?utm_source=generator"
+      src="https://open.spotify.com/embed/playlist/3Rx9zSZgNBRhkLMFkfO9Fz?utm_source=generator&autoplay=1"
       width="100%" height="352" frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"></iframe>
@@ -248,15 +248,13 @@ const PLAYLIST = [{ title: "End of Beginning", artist: "Djo", dur: "3:55" }, { t
 // ------------- Flow -------------
 const typing = { speed: 16, cmdSpeed: 28, linePause: 260 };
 const script = [
+    { type: "action", fn: () => { revealSpotifyEmbed(); setNowPlaying(PLAYLIST[0]?.title || "Love Mixtape"); } },
     { type: "line", text: "Microsoft Windows [Version 10.0.19045]" },
     { type: "line", text: "(c) Microsoft Corporation. All rights reserved." },
     { type: "blank" },
     { type: "prompt", text: "echo Initializing love.exe ..." },
     { type: "type", text: "[ OK ] Loaded memories: sunsets, late-night calls, quiet laughter" },
     { type: "type", text: "[ OK ] Set HEART=YOURS" },
-    { type: "blank" },
-    { type: "prompt", text: "dir /b playlist\\love\\" },
-    { type: "type", text: PLAYLIST.map((t, i) => `${String(i + 1).padStart(2, "0")} - ${t.title}.mp3`).join("\n") },
     { type: "blank" },
     { type: "prompt", text: "type note.txt" },
     { type: "type", text: ROMANTIC_NOTE },
